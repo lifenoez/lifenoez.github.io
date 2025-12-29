@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Năm Mới 2025</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #b71c1c; /* Màu đỏ thẫm */
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            border: 5px solid #ffd700;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px #ffd700;
+            max-width: 500px;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ffd700;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .btn-chuc {
+            background-color: #ffd700;
+            color: #b71c1c;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-chuc:hover {
+            transform: scale(1.1);
+            background-color: #fff;
+        }
+
+        .petal {
+            position: absolute;
+            background-color: #ffb7c5;
+            border-radius: 150% 0 150% 0;
+            width: 15px;
+            height: 15px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Chúc Mừng Năm Mới!</h1>
+        <p id="loichuc">Nhấn vào nút bên dưới để nhận lời chúc từ mình nhé!</p>
+        <button class="btn-chuc" onclick="thayDoiLoiChuc()">Nhận Lời Chúc</button>
+    </div>
+
+    <script>
+        const danhSachChuc = [
+            "Chúc bạn vạn sự như ý, tỷ sự như mơ!",
+            "Chúc mừng năm mới: Công việc hanh thông, gia đình hạnh phúc!",
+            "Năm mới phát tài, phát lộc, sức khỏe dồi dào!",
+            "Chúc bạn 365 ngày hạnh phúc và bình an!",
+            "Tiền vào như nước, tiền ra nhỏ giọt như cafe phin!"
+        ];
+
+        function thayDoiLoiChuc() {
+            const randomChuc = danhSachChuc[Math.floor(Math.random() * danhSachChuc.length)];
+            document.getElementById('loichuc').innerText = randomChuc;
+        }
+
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, 5000);
+        }
+        setInterval(createPetal, 200);
+    </script>
+</body>
+</html>
